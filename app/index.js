@@ -62,16 +62,16 @@ const updateHeartRate = () => {
         if (counthr === 15) {
             ratehr = Math.round(ratehr/15);
             hr = ratehr;
-            if((hr > 110 || hr < 50) && countv == 0) {
+            if(((hr <= 140 && hr > 120) || hr < 45) && countv == 0) {
                 vibration.start("alert");
                 setTimeout(() => {  vibration.stop(); }, 3000);
                 countv += 1;
-            } else if(hr > 110 || hr < 50) {
+            } else if((hr <= 140 && hr > 120) || hr < 45) {
                 countv += 1;
                 if (countv == 19) {
                     countv = 0
                 }
-            } else if (hr <= 110 && hr >= 50) {
+            } else if (hr <= 120 && hr >= 45) {
                 countv = 0
             }
             counthr = 0;
